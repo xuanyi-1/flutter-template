@@ -133,10 +133,9 @@ class _HomePageState extends State<HomePage> {
             image: AssetImage(item['backgroundUrl']),
             fit: BoxFit.cover, // 设置图片的适应方式
           ),
+          borderRadius: BorderRadius.circular(5),
         ),
-        child: Column(
-          crossAxisAlignment:CrossAxisAlignment.start,
-          children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(
             children: [
               CircleAvatar(
@@ -188,7 +187,8 @@ class _HomePageState extends State<HomePage> {
               slivers: <Widget>[
                 SliverToBoxAdapter(
                   child: SizedBox(
-                    height: 420, // 设置容器的高度，用于显示图片轮播
+                    height: MediaQuery.of(context).size.height -
+                        400, // 设置容器的高度，用于显示图片轮播
                     child: Swiper(
                       itemBuilder: (BuildContext context, int index) {
                         return Image.asset(
@@ -222,6 +222,7 @@ class _HomePageState extends State<HomePage> {
                           margin: const EdgeInsets.only(
                               top: 10.0), // 添加所有方向的外边距为 20
                           child: ListView(
+                            
                             scrollDirection: Axis.horizontal, // 设置滚动方向为水平
                             children: _buildAuthor()
 
