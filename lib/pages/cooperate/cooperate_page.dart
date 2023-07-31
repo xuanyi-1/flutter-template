@@ -10,6 +10,7 @@ class MooperatePage extends StatefulWidget {
 class _MooperatePageState extends State<MooperatePage> {
   @override
   Widget build(BuildContext context) {
+     print("build2");
     return Scaffold(
       appBar: AppBar(
         title: const Text('My App'),

@@ -9,7 +9,13 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with  AutomaticKeepAliveClientMixin  {
+
+    // 是否记录状态:true表示需要记录组件状态
+  @override
+  @protected
+  bool get wantKeepAlive => true;
+
   final List<String> imageList = [
     'assets/swiper/swiper1.webp',
     'assets/swiper/swiper2.webp',
@@ -176,6 +182,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+     print("build1");
     return Scaffold(
       body: Container(
         // 添加一个容器作为 CustomScrollView 的子部件
@@ -222,7 +229,6 @@ class _HomePageState extends State<HomePage> {
                           margin: const EdgeInsets.only(
                               top: 10.0), // 添加所有方向的外边距为 20
                           child: ListView(
-                            
                             scrollDirection: Axis.horizontal, // 设置滚动方向为水平
                             children: _buildAuthor()
 

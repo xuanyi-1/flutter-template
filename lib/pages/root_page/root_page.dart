@@ -38,24 +38,29 @@ class _RootPageState extends State<RootPage> {
 
   /// tabbar点击事件
   void _onItemSelected(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+ 
 
     // 控制页面切换
     if (_controller != null) {
+      print('123');
       _controller!.jumpToPage(index);
     }
+
+       setState(() {
+      _selectedIndex = index;
+    });
   }
 
   var titles = ['首页', '合作', '闪作', '消息', '我的'];
   @override
   Widget build(BuildContext context) {
+  
     return Scaffold(
         body: PageView(
           controller: _controller,
           physics: const NeverScrollableScrollPhysics(),
           children: pages,
+          
         ),
         bottomNavigationBar: BrnBottomTabBar(
           fixedColor: Colors.blue,
