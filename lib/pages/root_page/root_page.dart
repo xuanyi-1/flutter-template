@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:the_land/pages/cooperate/cooperate_page.dart';
 import 'package:the_land/pages/home/home_page.dart';
 import 'package:the_land/pages/message/message_page.dart';
 import 'package:the_land/pages/my/my_page.dart';
-import 'package:the_land/pages/seek/seek_page.dart';
+
 import 'package:bruno/bruno.dart';
+import 'package:the_land/pages/work/work_page.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({Key? key}) : super(key: key);
@@ -15,7 +17,8 @@ class RootPage extends StatefulWidget {
 class _RootPageState extends State<RootPage> {
   List<Widget> pages = [
     const HomePage(),
-    const SeekPage(),
+    const MooperatePage(),
+    const WorkPage(),
     const MessagePage(),
     const MyPage()
   ];
@@ -45,7 +48,7 @@ class _RootPageState extends State<RootPage> {
     }
   }
 
-  var titles = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'];
+  var titles = ['首页', '合作', '闪作', '消息', '我的'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,76 +64,104 @@ class _RootPageState extends State<RootPage> {
           items: <BrnBottomTabBarItem>[
             BrnBottomTabBarItem(
                 selectedTextStyle: (const TextStyle(
-                  fontSize: 12.0, // 设置字体大小为 24 像素
-                  color: Color.fromARGB(255, 85, 151, 250),
+                  fontSize: 14.0, // 设置字体大小为 24 像素
+                  color: Color.fromARGB(255, 0, 0, 0),
                 )),
                 unSelectedTextStyle: (const TextStyle(
-                  fontSize: 12.0, // 设置字体大小为 24 像素
+                  fontSize: 14.0, // 设置字体大小为 24 像素
+                  color: Color.fromARGB(255, 128, 128, 128),
                 )),
                 icon: const Icon(
                   Icons.home, // 使用 Material Icons 的 favorite 图标
                   size: 28.0,
+                  color: Color.fromARGB(255, 128, 128, 128),
                 ),
                 activeIcon: const Icon(
                   Icons.home, // 使用 Material Icons 的 favorite 图标
                   size: 28.0,
-                  color: Color.fromARGB(255, 85, 151, 250),
+                  color: Color.fromARGB(255, 0, 0, 0),
                 ),
                 title: Text(titles[0])),
             BrnBottomTabBarItem(
                 selectedTextStyle: (const TextStyle(
-                  fontSize: 12.0, // 设置字体大小为 24 像素
-                  color: Color.fromARGB(255, 85, 151, 250),
+                  fontSize: 14.0, // 设置字体大小为 24 像素
+                  color: Color.fromARGB(255, 0, 0, 0),
                 )),
                 unSelectedTextStyle: (const TextStyle(
-                  fontSize: 12.0, // 设置字体大小为 24 像素
+                  fontSize: 14.0, // 设置字体大小为 24 像素
+                  color: Color.fromARGB(255, 128, 128, 128),
                 )),
                 icon: const Icon(
                   Icons.people, // 使用 Material Icons 的 favorite 图标
                   size: 28.0,
+                  color: Color.fromARGB(255, 128, 128, 128),
                 ),
                 activeIcon: const Icon(
                   Icons.people, // 使用 Material Icons 的 favorite 图标
                   size: 28.0,
-                  color: Color.fromARGB(255, 85, 151, 250),
+                  color: Color.fromARGB(255, 0, 0, 0),
                 ),
                 title: Text(titles[1])),
             BrnBottomTabBarItem(
                 selectedTextStyle: (const TextStyle(
-                  fontSize: 12.0, // 设置字体大小为 24 像素
-                  color: Color.fromARGB(255, 85, 151, 250),
+                  fontSize: 14.0, // 设置字体大小为 24 像素
+                  color: Color.fromARGB(255, 0, 0, 0),
                 )),
                 unSelectedTextStyle: (const TextStyle(
-                  fontSize: 12.0, // 设置字体大小为 24 像素
+                  fontSize: 14.0, // 设置字体大小为 24 像素
+                  color: Color.fromARGB(255, 128, 128, 128),
                 )),
                 icon: const Icon(
-                  Icons.chat, // 使用 Material Icons 的 favorite 图标
+                  Icons.collections, // 使用 Material Icons 的 favorite 图标
                   size: 28.0,
+                  color: Color.fromARGB(255, 128, 128, 128),
                 ),
                 activeIcon: const Icon(
-                  Icons.chat, // 使用 Material Icons 的 favorite 图标
+                  Icons.collections, // 使用 Material Icons 的 favorite 图标
                   size: 28.0,
-                  color: Color.fromARGB(255, 85, 151, 250),
+                  color: Color.fromARGB(255, 0, 0, 0),
                 ),
                 title: Text(titles[2])),
             BrnBottomTabBarItem(
                 selectedTextStyle: (const TextStyle(
-                  fontSize: 12.0, // 设置字体大小为 24 像素
-                  color: Color.fromARGB(255, 85, 151, 250),
+                  fontSize: 14.0, // 设置字体大小为 24 像素
+                  color: Color.fromARGB(255, 0, 0, 0),
                 )),
                 unSelectedTextStyle: (const TextStyle(
-                  fontSize: 12.0, // 设置字体大小为 24 像素
+                  fontSize: 14.0, // 设置字体大小为 24 像素
+                  color: Color.fromARGB(255, 128, 128, 128),
+                )),
+                icon: const Icon(
+                  Icons.chat, // 使用 Material Icons 的 favorite 图标
+                  size: 28.0,
+                  color: Color.fromARGB(255, 128, 128, 128),
+                ),
+                activeIcon: const Icon(
+                  Icons.chat, // 使用 Material Icons 的 favorite 图标
+                  size: 28.0,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                ),
+                title: Text(titles[3])),
+            BrnBottomTabBarItem(
+                selectedTextStyle: (const TextStyle(
+                  fontSize: 14.0, // 设置字体大小为 24 像素
+                  color: Color.fromARGB(255, 0, 0, 0),
+                )),
+                unSelectedTextStyle: (const TextStyle(
+                  fontSize: 14.0, // 设置字体大小为 24 像素
+                  color: Color.fromARGB(255, 128, 128, 128),
                 )),
                 icon: const Icon(
                   Icons.person, // 使用 Material Icons 的 favorite 图标
                   size: 28.0,
+                  color: Color.fromARGB(255, 128, 128, 128),
                 ),
                 activeIcon: const Icon(
                   Icons.person, // 使用 Material Icons 的 favorite 图标
                   size: 28.0,
-                  color: Color.fromARGB(255, 85, 151, 250),
+                  color: Color.fromARGB(255, 0, 0, 0),
                 ),
-                title: Text(titles[3])),
+                title: Text(titles[4])),
           ],
         ));
   }

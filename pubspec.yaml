@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   
   bruno: ^3.4.0
+  flutter_swiper_null_safety: ^1.0.2
 
 
 
