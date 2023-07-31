@@ -11,10 +11,72 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<String> imageList = [
-    'https://via.placeholder.com/350x150',
-    'https://via.placeholder.com/350x150',
-    'https://via.placeholder.com/350x150',
-    'https://via.placeholder.com/350x150',
+    'assets/swiper/swiper1.webp',
+    'assets/swiper/swiper2.webp',
+    'assets/swiper/swiper3.webp',
+  ];
+
+  List<Map<String, dynamic>> people = [
+    {
+      "avatarUrl": 'assets/author/avatar/avatar1.jpeg',
+      "backgroundUrl": 'assets/author/background/bg1.webp',
+      "name": 'John Doe',
+      "label": '硬表面建模 | 灯光渲染 | 角色IP'
+    },
+    {
+      "avatarUrl": 'assets/author/avatar/avatar2.png',
+      "backgroundUrl": 'assets/author/background/bg2.webp',
+      "name": 'Jane Smith',
+      "label": '动画设计 | 视觉效果 | 3D建模',
+    },
+    {
+      "avatarUrl": 'assets/author/avatar/avatar3.png',
+      "backgroundUrl": 'assets/author/background/bg3.webp',
+      "name": 'Mike Johnson',
+      "label": 'AE特效 | 材质绘制 | 灯光渲染',
+    },
+    {
+      "avatarUrl": 'assets/author/avatar/avatar4.jpg',
+      "backgroundUrl": 'assets/author/background/bg4.webp',
+      "name": 'Samira',
+      "label": '硬表面建模 | 灯光渲染 | 角色IP'
+    },
+    {
+      "avatarUrl": 'assets/author/avatar/avatar5.webp',
+      "backgroundUrl": 'assets/author/background/bg5.webp',
+      "name": '今天吃鱼',
+      "label": '角色IP | 产品设计 | 动态设计 | 包装设计',
+    },
+    {
+      "avatarUrl": 'assets/author/avatar/avatar6.jpg',
+      "backgroundUrl": 'assets/author/background/bg6.webp',
+      "name": '茶茶面',
+      "label": '动画师（三维） | 创意总监',
+    },
+    {
+      "avatarUrl": 'assets/author/avatar/avatar7.jpg',
+      "backgroundUrl": 'assets/author/background/bg7.webp',
+      "name": 'En_HAN',
+      "label": '硬表面建模 | 灯光渲染 | 角色IP'
+    },
+    {
+      "avatarUrl": 'assets/author/avatar/avatar8.jpg',
+      "backgroundUrl": 'assets/author/background/bg8.webp',
+      "name": '叫我英俊就好',
+      "label": '产品设计 | 包装设计',
+    },
+    {
+      "avatarUrl": 'assets/author/avatar/avatar9.jpg',
+      "backgroundUrl": 'assets/author/background/bg9.webp',
+      "name": 'yo10171',
+      "label": '动态设计',
+    },
+    {
+      "avatarUrl": 'assets/author/avatar/avatar10.jpg',
+      "backgroundUrl": 'assets/author/background/bg10.webp',
+      "name": 'BOBOworks',
+      "label": '导演（CG） | 美术指导（CG） | 灯光渲染 | 动态设计 | 后期合成',
+    },
   ];
 
   final ScrollController _scrollController = ScrollController();
@@ -56,9 +118,61 @@ class _HomePageState extends State<HomePage> {
       });
       return;
     }
+  }
 
-    debugPrint('$offset');
-    // 在这里根据 offset 的值进行逻辑处理，比如判断滚动到了特定位置并执行相应的操作
+  List<Widget> _buildAuthor() {
+    List<Widget> items = [];
+    for (var item in people) {
+      items.add(Container(
+        margin: const EdgeInsets.only(right: 10.0),
+        padding: const EdgeInsets.only(top: 135.0, left: 10.0),
+        width: 200.0,
+        height: 200.0,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(item['backgroundUrl']),
+            fit: BoxFit.cover, // 设置图片的适应方式
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment:CrossAxisAlignment.start,
+          children: [
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 12,
+                backgroundImage: AssetImage(item['avatarUrl']), // 设置头像图片路径
+              ),
+              const SizedBox(width: 10),
+              Text(
+                item['name'], // 名字
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+          Expanded(
+              child: Container(
+            padding: const EdgeInsets.all(10),
+            child: Text(
+              item['label'], // 长文本
+              style: const TextStyle(
+                fontSize: 12,
+                color: Colors.white,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.left,
+            ),
+          )),
+        ]),
+      ));
+    }
+
+    return items;
   }
 
   @override
@@ -77,14 +191,45 @@ class _HomePageState extends State<HomePage> {
                     height: 420, // 设置容器的高度，用于显示图片轮播
                     child: Swiper(
                       itemBuilder: (BuildContext context, int index) {
-                        return Image.network(
+                        return Image.asset(
                           imageList[index], // 加载图片轮播项
                           fit: BoxFit.cover,
                         );
                       },
                       itemCount: imageList.length,
-                      pagination: const SwiperPagination(), // 添加轮播图的指示器
-                      control: const SwiperControl(), // 添加轮播图的控制按钮（向左、向右切换）
+                      autoplay: true,
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 20.0, top: 20.0),
+                    height: 250.0,
+                    child: Column(
+                      // 横轴(副轴)方向左对齐
+                      crossAxisAlignment:
+                          CrossAxisAlignment.start, // 子元素在水平方向上居中对齐
+                      children: <Widget>[
+                        const Text(
+                          '认证设计师',
+                          style: TextStyle(
+                            fontSize: 16, // 设置字体大小为 24
+                            fontWeight: FontWeight.bold, // 设置字体加粗
+                          ),
+                        ),
+                        Expanded(
+                            child: Container(
+                          margin: const EdgeInsets.only(
+                              top: 10.0), // 添加所有方向的外边距为 20
+                          child: ListView(
+                            scrollDirection: Axis.horizontal, // 设置滚动方向为水平
+                            children: _buildAuthor()
+
+                            // 添加更多子元素
+                            ,
+                          ),
+                        )),
+                      ],
                     ),
                   ),
                 ),
