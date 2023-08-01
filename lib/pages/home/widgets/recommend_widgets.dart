@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_land/pages/home/widgets/video_swiper.dart';
 
 class RecommendWidgets extends StatelessWidget {
   const RecommendWidgets({super.key, this.hotRecommends});
@@ -51,6 +52,7 @@ class RecommendWidgets extends StatelessWidget {
         )
       ])));
     }
+  items.insert(2, const VideoSwiperPage());
     return items;
   }
 

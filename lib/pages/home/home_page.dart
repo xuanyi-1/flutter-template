@@ -295,7 +295,8 @@ class _HomePageState extends State<HomePage>
                 ),
                  SliverToBoxAdapter(
                   child: RecommendWidgets(hotRecommends:hotRecommends),
-                )
+                ),
+              
               ],
             ), // 将你的 body 内容放在 Stack 中
             Positioned(
