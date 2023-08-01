@@ -38,6 +38,8 @@ dependencies:
   
   bruno: ^3.4.0
   flutter_swiper_null_safety: ^1.0.2
+  card_swiper: ^3.0.1
+  video_player: ^2.3.1
 
 
 
