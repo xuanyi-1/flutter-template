@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:the_land/pages/home/widgets/home_app_bar.dart';
+import 'package:the_land/pages/home/widgets/recommend_widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,9 +10,9 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with  AutomaticKeepAliveClientMixin  {
-
-    // 是否记录状态:true表示需要记录组件状态
+class _HomePageState extends State<HomePage>
+    with AutomaticKeepAliveClientMixin {
+  // 是否记录状态:true表示需要记录组件状态
   @override
   @protected
   bool get wantKeepAlive => true;
@@ -20,6 +21,58 @@ class _HomePageState extends State<HomePage> with  AutomaticKeepAliveClientMixin
     'assets/swiper/swiper1.webp',
     'assets/swiper/swiper2.webp',
     'assets/swiper/swiper3.webp',
+  ];
+
+  List hotRecommends = [
+    {
+      "imgUrl": 'assets/work/work1.webp',
+      "name": 'Sherlocksss',
+      "avatarUrl": 'assets/author/avatar/avatar1.jpeg',
+      "label": '深海《DEEP》高级影像第七期'
+    },
+    {
+      "imgUrl": 'assets/work/work2.webp',
+      "name": '波宁Bolin',
+      "avatarUrl": 'assets/author/avatar/avatar2.png',
+      "label": 'CASEKOO CloudCush'
+    },
+    {
+      "imgUrl": 'assets/work/work3.webp',
+      "name": '北故',
+      "avatarUrl": 'assets/author/avatar/avatar3.png',
+      "label": '3D角色'
+    },
+    {
+      "imgUrl": 'assets/work/work4.webp',
+      "name": '不正经制造',
+      "avatarUrl": 'assets/author/avatar/avatar4.jpg',
+      "label": '字体设计(野去找感觉)'
+    },
+    
+    {
+      "imgUrl": 'assets/work/work5.webp',
+      "name": 'DTWO DESIGN',
+      "avatarUrl": 'assets/author/avatar/avatar5.webp',
+      "label": 'Wisdom-Reverse'
+    },
+    {
+      "imgUrl": 'assets/work/work6.webp',
+      "name": '山丘',
+      "avatarUrl": 'assets/author/avatar/avatar6.jpg',
+      "label": '蒙牛酸酸乳｜三维动画'
+    },
+    {
+      "imgUrl": 'assets/work/work7.webp',
+      "name": 'awing',
+      "avatarUrl": 'assets/author/avatar/avatar7.jpg',
+      "label": 'Time stationery 时间文具'
+    },
+     {
+      "imgUrl": 'assets/work/work8.webp',
+      "name": '月月鸟呀',
+      "avatarUrl": 'assets/author/avatar/avatar8.jpg',
+      "label": 'Santorini dreams'
+    },
   ];
 
   List<Map<String, dynamic>> people = [
@@ -182,7 +235,7 @@ class _HomePageState extends State<HomePage> with  AutomaticKeepAliveClientMixin
 
   @override
   Widget build(BuildContext context) {
-     print("build1");
+    print("build1");
     return Scaffold(
       body: Container(
         // 添加一个容器作为 CustomScrollView 的子部件
@@ -210,7 +263,7 @@ class _HomePageState extends State<HomePage> with  AutomaticKeepAliveClientMixin
                 ),
                 SliverToBoxAdapter(
                   child: Container(
-                    padding: const EdgeInsets.only(left: 20.0, top: 20.0),
+                    padding: const EdgeInsets.only(left: 10.0, top: 20.0),
                     height: 250.0,
                     child: Column(
                       // 横轴(副轴)方向左对齐
@@ -240,6 +293,9 @@ class _HomePageState extends State<HomePage> with  AutomaticKeepAliveClientMixin
                     ),
                   ),
                 ),
+                 SliverToBoxAdapter(
+                  child: RecommendWidgets(hotRecommends:hotRecommends),
+                )
               ],
             ), // 将你的 body 内容放在 Stack 中
             Positioned(

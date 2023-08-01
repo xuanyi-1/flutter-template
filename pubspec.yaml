@@ -67,6 +67,7 @@ flutter:
   assets:
         -  assets/
         -  assets/swiper/
+        -  assets/work/
         -  assets/author/
         -  assets/author/background/
         -  assets/author/avatar/
