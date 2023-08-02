@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:the_land/pages/my/my_home_page_widgets.dart';
 
-class HeaderInfoWidgets extends StatelessWidget {
+class HeaderInfoWidgets extends StatefulWidget {
   const HeaderInfoWidgets({super.key});
+
+  @override
+  _HeaderInfoWidgetsState createState() => _HeaderInfoWidgetsState();
+}
+
+class _HeaderInfoWidgetsState extends State<HeaderInfoWidgets> {
+  void jumpRouter() {
+    Navigator.push(
+      context,
+      CupertinoPageRoute(builder: (BuildContext context) {
+        return const MyHomePage();
+      }),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +55,7 @@ class HeaderInfoWidgets extends StatelessWidget {
                           child: InkWell(
                             onTap: () {
                               // 处理点击事件
-                              print('点击了我的主页');
+                              jumpRouter();
                             },
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -191,11 +207,3 @@ class HeaderInfoWidgets extends StatelessWidget {
     );
   }
 }
-
-
-    //  Navigator.push(
-    //       context,
-    //       CupertinoPageRoute(builder: (BuildContext context) {
-    //         return RegisterVerifyPage(mobile: _mobileController!.text);
-    //       }),
-    //     );

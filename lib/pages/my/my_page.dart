@@ -27,7 +27,7 @@ class _MyPageState extends State<MyPage> {
             color: const Color(0xFFF7F7F7),
             child:      Column(
                   children: [
-                    const HeaderInfoWidgets(),
+                     HeaderInfoWidgets(),
                     SetWidgets(),
                   ],
                 )) ,
