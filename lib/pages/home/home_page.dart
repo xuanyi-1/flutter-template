@@ -239,7 +239,7 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       body: Container(
         // 添加一个容器作为 CustomScrollView 的子部件
-        color: const Color.fromRGBO(247, 247, 248, 1.0),
+         color: const Color(0xFFF7F7F7), // 
         child: Stack(
           children: [
             CustomScrollView(
