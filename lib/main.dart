@@ -1,8 +1,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:the_land/pages/root_page/root_page.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+
+ SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.white, // 设置状态栏的背景颜色
+  ));
+
   runApp(const MyApp());
 }
 
