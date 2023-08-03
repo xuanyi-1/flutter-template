@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bruno/bruno.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:the_land/pages/my/widgets/edit_widgets.dart';
 
 // ignore: must_be_immutable
 class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -49,27 +51,35 @@ class _MyAppBarState extends State<MyAppBar> {
     );
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: BrnAppBar(
-        automaticallyImplyLeading: false,
-        //自定义显示的title 为切换的row
-        title: Opacity(
-            opacity: widget.opacityNum,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[_buildTab(0)],
-            )),
-        //自定义右侧action
-        actions: BrnIconAction(
-          child: const Icon(
-            Icons.edit,
-          ),
-          iconPressed: () {},
-        ),
-      ),
+          automaticallyImplyLeading: false,
+          //自定义显示的title 为切换的row
+          title: Opacity(
+              opacity: widget.opacityNum,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[_buildTab(0)],
+              )),
+          //自定义右侧action
+          actions: BrnIconAction(
+            child: const Icon(
+              Icons.edit,
+            ),
+            iconPressed: () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(builder: (BuildContext context) {
+                  return const EditWidgets();
+                }),
+              );
+            },
+          )),
     );
   }
 }
