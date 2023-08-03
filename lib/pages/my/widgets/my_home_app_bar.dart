@@ -56,7 +56,11 @@ class _MyHomeAppBarState extends State<MyHomeAppBar> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Opacity(
+      child:
+      
+       Visibility(
+        visible: widget.opacityNum!=0.0?true:false,
+        child:  Opacity(
             opacity: widget.opacityNum,
             child: BrnAppBar(
         automaticallyImplyLeading: false,
@@ -73,7 +77,9 @@ class _MyHomeAppBarState extends State<MyHomeAppBar> {
           ),
           iconPressed: () {},
         ),
-      )),
+      )) ,
+       )
+     ,
     );
   }
 }

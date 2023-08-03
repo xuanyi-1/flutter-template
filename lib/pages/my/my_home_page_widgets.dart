@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:the_land/pages/my/my_page.dart';
 import 'package:the_land/pages/my/widgets/my_home_app_bar.dart';
+import 'package:flutter/cupertino.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -34,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage>
   void _handleScroll() {
     // 处理滚动事件的逻辑
     double offset = _scrollController.offset;
-print(offset);
+    print(offset);
     if (offset < 50.0) {
       setState(() {
         scrollShow = 0.0;
@@ -56,6 +59,21 @@ print(offset);
     }
   }
 
+ void jumpRouter() {
+
+    Navigator.pop(
+      context,
+      CupertinoPageRoute(builder: (BuildContext context) {
+        return const MyPage();
+      }),
+    );
+  }
+
+void shareApp(){
+  print(222);
+
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,11 +84,15 @@ print(offset);
           controller: _scrollController,
           physics: const BouncingScrollPhysics(),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height+240.0,
+            height: MediaQuery.of(context).size.height + 240.0,
             child: Column(
               children: <Widget>[
                 Container(
                     width: MediaQuery.of(context).size.width,
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).padding.top + 5.0,
+                        left: 10.0,
+                        right: 10.0),
                     height: 200.0,
                     decoration: const BoxDecoration(
                       color: Colors.black,
@@ -80,7 +102,45 @@ print(offset);
                         fit: BoxFit.cover,
                       ),
                     ),
-                    child: const Text('123')),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(0.4),
+                              shape: BoxShape.circle,
+                            ),
+                            child: GestureDetector(
+                              onTap: jumpRouter,
+                              child: const Icon(
+                                Icons.arrow_back_outlined,
+                                color: Colors.white,
+                                size: 26,
+                              ),
+                            )),
+                        Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.4),
+                            shape: BoxShape.circle,
+                          ),
+                          child:
+                          GestureDetector(
+                              onTap: shareApp,
+                              child:  const Icon(
+                            Icons.more_horiz_outlined,
+                            color: Colors.white,
+                            size: 26,
+                          ),
+                              )
+                         
+                        ),
+                      ],
+                    )),
                 TabBar(
                   controller: _controller,
                   // 选中和未选中状态颜色
@@ -145,9 +205,9 @@ print(offset);
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text(
-                              'Tab 3 Content',
-                            ),
+                        Text('123'),
+                            
+
                             // Add any additional widgets or content for Tab 3 here
                           ],
                         ),
