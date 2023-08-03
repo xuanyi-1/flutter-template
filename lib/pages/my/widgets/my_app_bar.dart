@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bruno/bruno.dart';
 
+// ignore: must_be_immutable
 class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
   MyAppBar({super.key, required this.opacityNum});
 
@@ -50,22 +51,24 @@ class _MyAppBarState extends State<MyAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return BrnAppBar(
-      automaticallyImplyLeading: false,
-      //自定义显示的title 为切换的row
-      title: Opacity(
-          opacity: widget.opacityNum,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[_buildTab(0)],
-          )),
-      //自定义右侧action
-      actions: BrnIconAction(
-        child: const Icon(
-          Icons.edit,
+    return SafeArea(
+      child: BrnAppBar(
+        automaticallyImplyLeading: false,
+        //自定义显示的title 为切换的row
+        title: Opacity(
+            opacity: widget.opacityNum,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[_buildTab(0)],
+            )),
+        //自定义右侧action
+        actions: BrnIconAction(
+          child: const Icon(
+            Icons.edit,
+          ),
+          iconPressed: () {},
         ),
-        iconPressed: () {},
       ),
     );
   }

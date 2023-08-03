@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:bruno/bruno.dart';
 
-class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const HomeAppBar({super.key});
+class MyHomeAppBar extends StatefulWidget implements PreferredSizeWidget {
+   const MyHomeAppBar({super.key, required this.opacityNum});
+
+
+ final double opacityNum;
 
   @override
-  _HomeAppBarState createState() => _HomeAppBarState();
+  _MyHomeAppBarState createState() => _MyHomeAppBarState();
 
   @override
-  Size get preferredSize => const Size.fromHeight(56.0); // 设置 AppBar 的首选高度
+  Size get preferredSize => const Size.fromHeight(56); // 设置 AppBar 的首选高度
 }
 
-class _HomeAppBarState extends State<HomeAppBar> {
-  int currentIndex = 1;
+class _MyHomeAppBarState extends State<MyHomeAppBar> {
+  
+
+
+
+ int currentIndex = 0;
 
   final TextStyle selectedHeiStyle = const TextStyle(
     color: Colors.black,
@@ -26,8 +33,8 @@ class _HomeAppBarState extends State<HomeAppBar> {
   );
 
   Widget _buildTab(int index) {
-    List<int> numIndex = [0, 1, 2];
-    List<String> numName = ['关注', '首页', '闪作'];
+    List<int> numIndex = [0];
+    List<String> numName = ['yo1582982999'];
     String text = '';
     if (numIndex.contains(index)) {
       text = numName[numIndex.indexOf(index)];
@@ -49,32 +56,24 @@ class _HomeAppBarState extends State<HomeAppBar> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BrnAppBar(
+      child: Opacity(
+            opacity: widget.opacityNum,
+            child: BrnAppBar(
         automaticallyImplyLeading: false,
         //自定义显示的title 为切换的row
         title: Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            _buildTab(0),
-            const SizedBox(
-              width: 24,
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[_buildTab(0)],
             ),
-            _buildTab(1),
-            const SizedBox(
-              width: 24,
-            ),
-            _buildTab(2)
-          ],
-        ),
         //自定义右侧action
         actions: BrnIconAction(
           child: const Icon(
-            Icons.search,
+            Icons.edit,
           ),
           iconPressed: () {},
         ),
-      ),
+      )),
     );
   }
 }

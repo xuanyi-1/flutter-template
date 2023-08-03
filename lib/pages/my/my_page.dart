@@ -59,6 +59,7 @@ final ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
         appBar:  MyAppBar(opacityNum:scrollShow),
         body:SingleChildScrollView( 

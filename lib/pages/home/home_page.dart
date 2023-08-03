@@ -235,6 +235,7 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     print("build1");
     return Scaffold(
       body: Container(
