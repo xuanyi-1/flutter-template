@@ -26,8 +26,8 @@ class _HomeAppBarState extends State<HomeAppBar> {
   );
 
   Widget _buildTab(int index) {
-    List<int> numIndex = [0, 1, 2];
-    List<String> numName = ['关注', '首页', '闪作'];
+    List<int> numIndex = [ 1];
+    List<String> numName = [ '首页'];
     String text = '';
     if (numIndex.contains(index)) {
       text = numName[numIndex.indexOf(index)];
