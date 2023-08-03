@@ -3,6 +3,7 @@ import 'package:the_land/pages/my/my_page.dart';
 import 'package:the_land/pages/my/widgets/my_home_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_share/flutter_share.dart';
+import 'package:the_land/pages/my/widgets/my_home_info.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -59,8 +60,7 @@ class _MyHomePageState extends State<MyHomePage>
     }
   }
 
- void jumpRouter() {
-
+  void jumpRouter() {
     Navigator.pop(
       context,
       CupertinoPageRoute(builder: (BuildContext context) {
@@ -69,18 +69,16 @@ class _MyHomePageState extends State<MyHomePage>
     );
   }
 
-void shareApp(){
-  print(222);
+  void shareApp() {
+    print(222);
+  }
 
-}
-
- Future<void> share() async {
+  Future<void> share() async {
     await FlutterShare.share(
-      title: 'Example share',
-      text: 'Example share text',
-      linkUrl: 'https://flutter.dev/',
-      chooserTitle: 'Example Chooser Title'
-    );
+        title: 'Example share',
+        text: 'Example share text',
+        linkUrl: 'https://flutter.dev/',
+        chooserTitle: 'Example Chooser Title');
   }
 
   @override
@@ -93,7 +91,7 @@ void shareApp(){
           controller: _scrollController,
           physics: const BouncingScrollPhysics(),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height + 240.0,
+            height: MediaQuery.of(context).size.height + 260.0,
             child: Column(
               children: <Widget>[
                 Container(
@@ -131,25 +129,23 @@ void shareApp(){
                               ),
                             )),
                         Container(
-                          width: 30,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.4),
-                            shape: BoxShape.circle,
-                          ),
-                          child:
-                          GestureDetector(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(0.4),
+                              shape: BoxShape.circle,
+                            ),
+                            child: GestureDetector(
                               onTap: share,
-                              child:  const Icon(
-                            Icons.more_horiz_outlined,
-                            color: Colors.white,
-                            size: 26,
-                          ),
-                              )
-                         
-                        ),
+                              child: const Icon(
+                                Icons.more_horiz_outlined,
+                                color: Colors.white,
+                                size: 26,
+                              ),
+                            )),
                       ],
                     )),
+                const MyHomeInfo(),
                 TabBar(
                   controller: _controller,
                   // 选中和未选中状态颜色
@@ -176,19 +172,24 @@ void shareApp(){
                 Expanded(
                   child: TabBarView(
                     controller: _controller,
-                    children: const [
+                    children: [
                       Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text(
-                              'Tab 1 Content',
-                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width,
+                       
+                              child: const Text(
+                                'Tab 1 Content',
+                              ),
+                            )
+
                             // Add any additional widgets or content for Tab 1 here
                           ],
                         ),
                       ),
-                      Center(
+                      const Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -199,7 +200,7 @@ void shareApp(){
                           ],
                         ),
                       ),
-                      Center(
+                      const Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -210,12 +211,11 @@ void shareApp(){
                           ],
                         ),
                       ),
-                      Center(
+                      const Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                        Text('123'),
-                            
+                            Text('123'),
 
                             // Add any additional widgets or content for Tab 3 here
                           ],
