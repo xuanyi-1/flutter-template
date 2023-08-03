@@ -1,9 +1,6 @@
 PODS:
   - Flutter (1.0.0)
-  - path_provider_foundation (0.0.1):
-    - Flutter
-    - FlutterMacOS
-  - share_plus (0.0.1):
+  - flutter_share (0.0.1):
     - Flutter
   - video_player_avfoundation (0.0.1):
     - Flutter
@@ -12,18 +9,15 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
-  - share_plus (from `.symlinks/plugins/share_plus/ios`)
+  - flutter_share (from `.symlinks/plugins/flutter_share/ios`)
   - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/ios`)
   - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  path_provider_foundation:
-    :path: ".symlinks/plugins/path_provider_foundation/darwin"
-  share_plus:
-    :path: ".symlinks/plugins/share_plus/ios"
+  flutter_share:
+    :path: ".symlinks/plugins/flutter_share/ios"
   video_player_avfoundation:
     :path: ".symlinks/plugins/video_player_avfoundation/ios"
   webview_flutter_wkwebview:
@@ -31,8 +25,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
-  share_plus: 599aa54e4ea31d4b4c0e9c911bcc26c55e791028
+  flutter_share: 4be0208963c60b537e6255ed2ce1faae61cd9ac2
   video_player_avfoundation: 81e49bb3d9fb63dccf9fa0f6d877dc3ddbeac126
   webview_flutter_wkwebview: 2e2d318f21a5e036e2c3f26171342e95908bd60a
 

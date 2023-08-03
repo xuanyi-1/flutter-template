@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:the_land/pages/my/my_page.dart';
 import 'package:the_land/pages/my/widgets/my_home_app_bar.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:flutter_share/flutter_share.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -74,6 +74,15 @@ void shareApp(){
 
 }
 
+ Future<void> share() async {
+    await FlutterShare.share(
+      title: 'Example share',
+      text: 'Example share text',
+      linkUrl: 'https://flutter.dev/',
+      chooserTitle: 'Example Chooser Title'
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,7 +139,7 @@ void shareApp(){
                           ),
                           child:
                           GestureDetector(
-                              onTap: shareApp,
+                              onTap: share,
                               child:  const Icon(
                             Icons.more_horiz_outlined,
                             color: Colors.white,
